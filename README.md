@@ -30,7 +30,7 @@ docker run -ti --rm alpine/bombardier -c 10000 -d (тривалість)s -l  (�
 Наступні команди повинні допомогти:
 
 ```
-set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
 ```
 
 ```

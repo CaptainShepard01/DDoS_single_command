@@ -1,6 +1,0 @@
-# Connections
-10000
-# Duration (in seconds)
-5000
-# Targets 
-abc.ru
