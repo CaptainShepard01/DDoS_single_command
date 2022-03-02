@@ -3,11 +3,15 @@
 Народ, хто з докера дудосить та з вінди, я вирішив спростити нам життя, в архіві 2 файла: 
 * .ps1 — сам скріпт, можна викликати через 
     ```
-    .\docker-DDoS_file.ps1
+    .\commands\bombardier_docker-DDoS.ps1
+    or
+    .\commands\ddosify_docker-DDoS.ps1
     ```
     з PowerShell або командою 
     ```
-    powershell.exe -noexit '.\docker-DDoS_file.ps1'
+    powershell.exe -noexit '.\commands\bombardier_docker-DDoS.ps1'
+    or
+    powershell.exe -noexit '.\commands\ddosify_docker-DDoS.ps1'
     ```
     з cmd
 
