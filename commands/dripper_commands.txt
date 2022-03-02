@@ -1,0 +1,5 @@
+# Duration (in seconds)
+6000
+# Targets (IP:PORT)
+80.68.247.10:53
+80.68.253.26:53
