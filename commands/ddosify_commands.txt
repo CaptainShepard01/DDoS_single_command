@@ -1,0 +1,23 @@
+# Requests
+5000
+# Duration (in seconds)
+6000
+# Timeout
+5
+# Targets (IP HTTP or IP HTTPS)
+185.72.228.100 http
+80.68.253.4 http
+# 185.72.229.73 http 
+# 185.72.229.73 https
+# 80.68.253.14 http 
+# 80.68.253.14 https
+# 185.72.231.233 http
+# 185.72.231.233 https
+# 185.72.229.11 http
+# 185.72.229.11 https
+# 80.68.253.10 http
+# 80.68.253.10 https
+# 185.72.229.9 http
+# 185.72.229.9 https
+# 80.68.253.12 http
+# 80.68.253.12 https
