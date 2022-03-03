@@ -12,6 +12,6 @@ $Part2 = " -n " + $Requests + " -d " + $Duration + " -p ";
 $Part3 =  " -m PUT -T " + $Timeout;
 
 Get-Content $FileName | Where-Object {-not ($_ -match $regex)} | Select-Object -Skip $NumberOfParameters | ForEach-Object {
-	$Target = $_.Split(' ');
+	$Target = $_.replace(' ','').Split(':');
 	Start-Process powershell ($Part1 + $Target[0] + $Part2 + $Target[1].ToUpper() + $Part3);
 }
