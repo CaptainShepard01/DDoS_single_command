@@ -1,0 +1,7 @@
+Requests: 10000
+Duration (in seconds): 10000
+Timeout: 5
+Turbo: 150
+Targets (IP : PORT1, PORT2):
+185.71.67.220 : 80, 443
+81.177.103.94 : 53, 80 , 443
