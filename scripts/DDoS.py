@@ -1,4 +1,5 @@
 import subprocess
+import re
 from subprocess import Popen
 
 file_name = "..\\commands\\commands.txt"
@@ -25,7 +26,7 @@ for i, line in enumerate(file):
             turbo = line.split(':')[1]
     else:
         current_line = line.split(':')
-        targets.append([current_line[0], current_line[1].split(',')])
+        targets.append([current_line[0], re.sub(r'[A-Za-z/]*', '', current_line[1]).split(',')])
 
 const_part1 = "docker run -it --rm "
 
