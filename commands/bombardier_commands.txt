@@ -1,6 +1,0 @@
-# Requests
-10000
-# Duration (in seconds)
-5000
-# Targets (IP:PORT)
-80.68.240.100:53

