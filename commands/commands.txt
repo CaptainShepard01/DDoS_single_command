@@ -1,9 +1,0 @@
-Requests: 10000
-Duration (in seconds): 10000
-Timeout: 5
-Turbo: 150
-Targets (IP : PORT1, PORT2):
-185.42.137.111 : 53
-91.217.20.1 : 53
-195.93.246.187 : 53
-194.58.196.62 : 53
