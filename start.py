@@ -1,7 +1,7 @@
 import subprocess
 from subprocess import Popen
 
-file_name = "..\\commands\\MHDDoS_commands.txt"
+file_name = "commands.txt"
 
 file = open(file_name, "r")
 number_of_parameters = 5
