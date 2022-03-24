@@ -44,7 +44,7 @@ for number, target in enumerate(targets):
     ip = target[0]
     if len(target) > 1:
         for i, parameters in enumerate(target[1]):
-            current_parameters = parameters.upper().split('/')
+            current_parameters = parameters.split('/')
             port = current_parameters[0]
             tool = ""
             if len(current_parameters) > 1:
@@ -57,7 +57,7 @@ for number, target in enumerate(targets):
 
             command += ip + ":" + port
     else:
-        command += ip
+        command += " " + ip
 
 command += const_part_2
 
