@@ -15,15 +15,23 @@
 
 # Поширені проблеми
 
-Під час виконання буде процес під назвою Vmmem, з часом він може жерти багато ОЗП:
+* Під час виконання буде процес під назвою Vmmem, з часом він може жерти багато ОЗП:
 
-![Vmmem](./images/Vmmem.png)
+  ![Vmmem](./images/Vmmem.png)
 
-Фікситься прописуванням наступної команди в терміналі:
+  Фікситься прописуванням наступної команди в терміналі:
+  ```
+  wsl --shutdown
+  ```
+  (після цього перезапустіть докер)
 
-![solution](./images/solution.png)
+* Є ще один процес, називається vpnkit.exe, він теж з часом починає жерти багато ОЗП:
 
-(після цього перезапустіть докер)
+  ![vpnkit.exe](./images/vpnkit.exe.png)
+  
+  Фікситься перезапуском докера:
+
+  ![solution_vpnkit](./images/solution_vpnkit.png)
 
 За основу взято docker image [porthole-ascend-cinnamon/mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy),
 я лишень додав налаштування через файл :)
